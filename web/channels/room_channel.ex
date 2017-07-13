@@ -11,9 +11,9 @@ defmodule TakeItForASpin.RoomChannel do
     {:error, %{ reason: "There's only one fidget room!" }}
   end
 
-  def handle_in("spin", %{ "body" => body }, socket) do
+  def handle_in("spin", _body, socket) do
     IO.puts "Spinit"
-    broadcast! socket, "spin", %{ body: "body" }
+    broadcast! socket, "spin", %{ body: 10 }
     { :noreply, socket }
   end
 

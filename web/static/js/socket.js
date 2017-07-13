@@ -4,7 +4,7 @@ socket.connect()
 
 export const channel = socket.channel('room:fidget', {})
 channel.join()
-  .receive('ok', resp => { console.log('Joined successfully', resp) })
+  .receive('ok', resp => { channel.push('initialize') })
   .receive('error', resp => { console.log('Unable to join', resp) })
 
 

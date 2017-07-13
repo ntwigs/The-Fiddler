@@ -4,22 +4,23 @@
   font-family: sans-serif;
 }
 
-.fidget-spinner {
-  width: 500px;
-  height: 500px;
-  transition: all 1s;
-  animation-name: spin;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  background-color: red;
-}
-
 .container {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
   width: 100vw;
+}
+
+.fidget-spinner {
+  width: 100px;
+  height: 100px;
+  transition: all 1s;
+  animation-name: spin;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  background-color: red;
+  border-radius: 20px;
 }
 
 @keyframes spin {

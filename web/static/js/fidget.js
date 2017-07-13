@@ -12,14 +12,21 @@ class FidgetSpinner {
   socketSpin (event) { this.channel.push('spin', { body: 'spinner' }) }
 
   increaseSpeed (speed) {
-    this.speed = this.speed -= speed / 10
-    this.fidget.style.animationDuration = `${ this.speed }s`
+    const newSpeed = this.speed -= speed / 10
+    if (newSpeed > 0.1) {
+      this.speed = newSpeed
+      this.fidget.style.animationDuration = `${ this.speed }s`
+    }
   }
 }
 
 export default channel => {
   const fidgetSpinner = new FidgetSpinner(channel)
   fidgetSpinner.initialize()
+
+  channel.on('initialize', () => {
+    console.log('Initial value')
+  })
 
   channel.on('spin', ({ body: speed }) => {
     fidgetSpinner.increaseSpeed(speed)

@@ -3,6 +3,7 @@ defmodule TakeItForASpin.RoomChannel do
 
    
   def join("room:fidget", _message, socket) do
+    IO.puts "joined"
     { :ok, socket }
   end
 
@@ -11,11 +12,11 @@ defmodule TakeItForASpin.RoomChannel do
   end
 
   def handle_in("spin", %{ "body" => body }, socket) do
-    broadcast! socket, "spin", %{ body: body }
+    IO.puts "Spinit"
+    broadcast! socket, "spin", %{ body: "body" }
     { :noreply, socket }
   end
 
-  intercept ["spin"]
   def handle_out("spin", payload, socket) do
     push socket, "spin", payload
     { :noreply, socket }

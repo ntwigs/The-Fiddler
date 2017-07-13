@@ -15,14 +15,21 @@
 .fidget-spinner {
   width: 100px;
   height: 100px;
+  background-color: red;
+  border-radius: 20px;
+}
+
+/* .fidget-spinner {
+  width: 100px;
+  height: 100px;
   transition: all 1s;
   animation-name: spin;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   background-color: red;
   border-radius: 20px;
-}
-
+} */
+/* 
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -30,4 +37,4 @@
   100% {
     transform: rotate(360deg);
   }
-}
+} */

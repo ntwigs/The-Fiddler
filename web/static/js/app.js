@@ -1,5 +1,5 @@
-import { channel } from './socket'
-import fidget from './fidget'
+import channel from './socketHandler'
+import fidget from './fidget/fidgetController'
 import 'phoenix_html'
 
 fidget(channel)

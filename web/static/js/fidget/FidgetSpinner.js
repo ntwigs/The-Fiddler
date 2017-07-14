@@ -1,6 +1,6 @@
 import { TimelineMax, TweenLite, Power0 } from 'gsap'
 
-class FidgetSpinner {
+export default class {
   constructor (channel) {
     this.timeline = new TimelineMax({ repeat: -1, repeatDelay: 0 })
     this.fidget = document.querySelector('.fidget-spinner')
@@ -25,18 +25,4 @@ class FidgetSpinner {
   repeat() {
     this.timeline.play(lastTweenStartTime)
   }
-}
-
-export default channel => {
-  const fidgetSpinner = new FidgetSpinner(channel)
-  fidgetSpinner.initialize()
-
-  channel.on('initialize', ({ body: speed }) => {
-    fidgetSpinner.speed = speed
-  })
-
-  channel.on('spin', ({ body: speed }) => {
-    fidgetSpinner.speed = speed
-    fidgetSpinner.increaseSpeed()
-  })
 }

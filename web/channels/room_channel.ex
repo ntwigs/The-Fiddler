@@ -3,14 +3,14 @@ defmodule TakeItForASpin.RoomChannel do
 
   @spin "spin"
   @initialize "initialize"
+  @update "update"
 
   def join("room:fidget", _message, socket) do
-    TakeItForASpin.State.start_link
     { :ok, socket }
   end
 
   def join("room:*", _message, _socket) do
-    {:error, %{ reason: "There's only one fidget room!" }}
+    { :error, %{ reason: "There's only one fidget room!" } }
   end
 
   def handle_in(@spin, _body, socket) do
@@ -22,6 +22,12 @@ defmodule TakeItForASpin.RoomChannel do
   def handle_in(@initialize, _body, socket) do
     current_speed = TakeItForASpin.State.get_speed
     broadcast! socket, @initialize, %{ body: current_speed }
+    { :noreply, socket }
+  end
+
+  def handle_in(@update, _body, socket) do
+    speed = TakeItForASpin.State.get_speed
+    broadcast! socket, @update, %{ body: speed }
     { :noreply, socket }
   end
 end

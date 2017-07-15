@@ -12,6 +12,7 @@ defmodule TakeItForASpin do
       supervisor(TakeItForASpin.Endpoint, []),
       # Start your own worker by calling: TakeItForASpin.Worker.start_link(arg1, arg2, arg3)
       worker(TakeItForASpin.State, []),
+      worker(TakeItForASpin.Speed, []),
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html

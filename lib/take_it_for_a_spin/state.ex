@@ -1,12 +1,16 @@
 defmodule TakeItForASpin.State do
-  @speed 1
+  @speed 0.2
 
   def start_link do
     Agent.start_link(fn -> %{ speed: 0 } end, name: :state)
   end
 
   def increase_speed do
-    Agent.get_and_update(:state, &calculate_speed_increase(&1))
+    if (get_speed < 10) do
+      Agent.get_and_update(:state, &calculate_speed_increase(&1))
+    else
+      10
+    end
   end
 
   def decrease_speed do

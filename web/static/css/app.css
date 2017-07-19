@@ -2,6 +2,11 @@
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+h1 {
+  color: white;
 }
 
 .container {
@@ -12,11 +17,13 @@
   height: 100vh;
   width: 100vw;
   text-align: center;
+  background-color: #232f39;
 }
 
 .fidget-spinner {
   width: 300px;
   height: 300px;
   border-radius: 20px;
+  transition: filter 1s;
   transform-origin: 50.15% 50.15%;
 }

@@ -7,16 +7,23 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Hello TakeItForASpin!</title>
+    <title>TakeItForASpin</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
-  <body>
-    <div class="container">
-      <main role="main">
-        <%= render @view_module, @view_template, assigns %>
-      </main>
-    </div>
+  <body class="container">
+    <header>
+      <h1>Take-a-Spin</h1>
+      <h5>Community-driven fidget spinner</h5>
+    </header>
+    <main role="main">
+      <%= render @view_module, @view_template, assigns %>
+    </main>
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+
+    <footer>
+      <p>Created with <strong>Elixir</strong> - source code on <a href="https://github.com/NorthernTwig/take-it-for-a-spin">GitHub</a></p>
+      <p>Fidget colors from <a href="https://github.com/NorthernTwig/take-it-for-a-spin">Magoon</a></p>
+    </footer>
   </body>
 </html>

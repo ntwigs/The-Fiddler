@@ -3,7 +3,7 @@ import FidgetSpinner from './FidgetSpinner'
 export default channel => {
   const fidgetSpinner = new FidgetSpinner(channel)
   fidgetSpinner.initialize()
-  
+
   channel.on('initialize', setSpeed.bind(this, fidgetSpinner))
   channel.on('spin', setSpeed.bind(this, fidgetSpinner))
   channel.on('update', setSpeed.bind(this, fidgetSpinner))

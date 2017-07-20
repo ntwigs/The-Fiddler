@@ -7,7 +7,7 @@ defmodule TakeItForASpin.Speed do
 
   def rep do
     speed = TakeItForASpin.State.decrease_speed
-    TakeItForASpin.Endpoint.broadcast! "room:fidget", "update", %{ body: speed }
+    TakeItForASpin.Endpoint.broadcast! "room:fidget", "update", %{ speed: speed }
     :timer.sleep @time
     rep
   end

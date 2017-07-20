@@ -24,6 +24,5 @@ h1 {
   width: 300px;
   height: 300px;
   border-radius: 20px;
-  transition: filter 1s;
   transform-origin: 50.15% 50.15%;
 }

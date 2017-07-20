@@ -19,11 +19,11 @@
     <main role="main">
       <%= render @view_module, @view_template, assigns %>
     </main>
-    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
 
     <footer>
       <p>Created with <strong>Elixir</strong> - source code on <a href="https://github.com/NorthernTwig/take-it-for-a-spin">GitHub</a></p>
       <p>Fidget colors from <a href="https://github.com/NorthernTwig/take-it-for-a-spin">Magoon</a></p>
     </footer>
+    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>

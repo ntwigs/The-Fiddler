@@ -1,19 +1,12 @@
-# TakeItForASpin
+# THE FIDDLER
 
-To start your Phoenix app:
+### What is this?
+It is a community-driven fidget spinner which feeds on sockets. 
 
-  * Install dependencies with `mix deps.get`
-  * Install Node.js dependencies with `npm install`
-  * Start Phoenix endpoint with `mix phoenix.server`
+### What does that mean?
+Basically, it is a virtual fidget spinner which you can **spin** and **drag** - but you will have to share, since there is only one fidget spinner.
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+### Why?
+I needed something to do in order to learn some Elixir, and came up with this. Which in turn ended up being quite fun.
 
-Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
-
-## Learn more
-
-  * Official website: http://www.phoenixframework.org/
-  * Guides: http://phoenixframework.org/docs/overview
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+[Display Gif Here]

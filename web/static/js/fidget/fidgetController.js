@@ -18,6 +18,7 @@ const setSpeed = (fidgetSpinner, shouldFlash, { speed }) => {
 
 const setPosition = (fidgetSpinner, { position }) => {
   const { x, y } = position
-  fidgetSpinner.x = x
-  fidgetSpinner.y = y
+  fidgetSpinner.x = x 
+  fidgetSpinner.y = y 
+  fidgetSpinner.move()
 }

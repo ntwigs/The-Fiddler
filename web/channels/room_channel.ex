@@ -21,8 +21,8 @@ defmodule TakeItForASpin.RoomChannel do
 
   def handle_in(@initialize, _body, socket) do
     current_speed = TakeItForASpin.State.get_speed
-    position = %{ x: x, y: y } = TakeItForASpin.State.get_position
-    broadcast! socket, @initialize, %{ speed: current_speed, position: position }
+    %{ x: x, y: y } = TakeItForASpin.State.get_position
+    broadcast! socket, @initialize, %{ speed: current_speed, position: %{ x: x, y: y } }
     { :noreply, socket }
   end
 

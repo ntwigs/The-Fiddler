@@ -18,11 +18,20 @@ export default class {
       bounds: '.container',
       throwProps: true,
       onPress: this.socketSpin.bind(this),
-      onDrag: this.socketMove.bind(this)
+      onDrag: this.socketMove.bind(this),
     })
     this.fidget.addEventListener('mousedown', this.socketSpin.bind(this))
     this.timeline.to(this.fidget, 2, { rotation: 360, ease: Power0.easeNone })
     TweenLite.fromTo(this.fidget, 1, { autoAlpha: 0 }, { autoAlpha: 1, delay: 1 })
+  }
+
+  setPosition({ x, y }) {
+    this.x = x
+    this.y = y
+  }
+
+  setSpeed(speed) {
+    this.speed = speed
   }
 
   socketMove() {
@@ -49,11 +58,7 @@ export default class {
 
   increaseSpeed() {
     TweenLite.to(this.timeline, 0, {
-      timeScale: this.speed
+      timeScale: this.speed,
     })
-  }
-
-  repeat() {
-    this.timeline.play(lastTweenStartTime)
   }
 }

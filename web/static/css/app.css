@@ -25,4 +25,5 @@ h1 {
   height: 300px;
   border-radius: 20px;
   transform-origin: 50.15% 50.15%;
+  opacity: 0;
 }

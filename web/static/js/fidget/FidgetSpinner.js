@@ -13,7 +13,7 @@ export default class {
 
   initialize() {
     this.draggable = Draggable.create(this.fidget, {
-      type: 'x,y',
+      type: 'x, y',
       edgeResistance: 0.65,
       bounds: '.container',
       throwProps: true,
@@ -22,6 +22,7 @@ export default class {
     })
     this.fidget.addEventListener('mousedown', this.socketSpin.bind(this))
     this.timeline.to(this.fidget, 2, { rotation: 360, ease: Power0.easeNone })
+    TweenLite.fromTo(this.fidget, 1, { autoAlpha: 0 }, { autoAlpha: 1, delay: 1 })
   }
 
   socketMove() {
@@ -34,8 +35,16 @@ export default class {
   move() { TweenLite.to(this.fidget, 0.35, { x: this.x, y: this.y }) }
 
   flash() {
+    this.makeFlash()
+    setTimeout(this.removeFlash.bind(this), 100)
+  }
+
+  makeFlash() {
     TweenLite.to(this.fidget, 0.250, { scale: 0.1, filter: 'brightness(2)' })
-    setTimeout(() => TweenLite.to(this.fidget, 0.250, { scale: 1, filter: 'brightness(1)' }), 100)
+  }
+
+  removeFlash() {
+    TweenLite.to(this.fidget, 0.250, { scale: 1, filter: 'brightness(1)' })
   }
 
   increaseSpeed() {

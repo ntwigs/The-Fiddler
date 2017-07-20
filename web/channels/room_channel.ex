@@ -2,7 +2,8 @@ defmodule TakeItForASpin.RoomChannel do
   use Phoenix.Channel
 
   @spin "spin"
-  @initialize "initialize"
+  @initialize "initialize"  
+  @move "move"  
 
   def join("room:fidget", _message, socket) do
     { :ok, socket }
@@ -14,13 +15,20 @@ defmodule TakeItForASpin.RoomChannel do
 
   def handle_in(@spin, _body, socket) do
     new_speed = TakeItForASpin.State.increase_speed
-    broadcast! socket, @spin, %{ body: new_speed }
+    broadcast! socket, @spin, %{ speed: new_speed }
     { :noreply, socket }
   end
 
   def handle_in(@initialize, _body, socket) do
     current_speed = TakeItForASpin.State.get_speed
-    broadcast! socket, @initialize, %{ body: current_speed }
+    position = %{ x: x, y: y } = TakeItForASpin.State.get_position
+    broadcast! socket, @initialize, %{ speed: current_speed, position: position }
+    { :noreply, socket }
+  end
+
+  def handle_in(@move, body, socket) do
+    %{ x: x, y: y } = TakeItForASpin.State.set_position body
+    broadcast! socket, @move, %{ position: %{ x: x, y: y } }
     { :noreply, socket }
   end
 end

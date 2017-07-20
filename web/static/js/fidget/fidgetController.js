@@ -4,7 +4,11 @@ export default channel => {
   const fidgetSpinner = new FidgetSpinner(channel)
   fidgetSpinner.initialize()
 
-  channel.on('initialize', setSpeed.bind(this, fidgetSpinner, false))
+  channel.on('initialize', intialValues => {
+    setSpeed(fidgetSpinner, false, intialValues)
+    setPosition(fidgetSpinner, intialValues)
+  })
+
   channel.on('spin', setSpeed.bind(this, fidgetSpinner, true))
   channel.on('update', setSpeed.bind(this, fidgetSpinner, false))
   channel.on('move', setPosition.bind(this, fidgetSpinner))

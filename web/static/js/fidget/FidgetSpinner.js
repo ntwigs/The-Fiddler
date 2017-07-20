@@ -12,7 +12,7 @@ export default class {
   }
 
   initialize() {
-    Draggable.create(this.fidget, { 
+    this.draggable = Draggable.create(this.fidget, {
       type: 'x,y',
       edgeResistance: 0.65,
       bounds: '.container',
@@ -24,10 +24,14 @@ export default class {
     this.timeline.to(this.fidget, 2, { rotation: 360, ease: Power0.easeNone })
   }
 
-
-  socketMove({ layerX: x, layerY: y }) { this.channel.push('move', { x, y }) }
+  socketMove() {
+    const { x, y } = this.draggable[0]
+    this.channel.push('move', { x, y })
+  }
 
   socketSpin() { this.channel.push('spin') }
+
+  move() { TweenLite.to(this.fidget, 0.35, { x: this.x, y: this.y }) }
 
   flash() {
     TweenLite.to(this.fidget, 0.250, { scale: 0.1, filter: 'brightness(2)' })

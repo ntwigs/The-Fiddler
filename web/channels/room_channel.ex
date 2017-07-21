@@ -1,16 +1,24 @@
 defmodule TakeItForASpin.RoomChannel do
   use Phoenix.Channel
+  alias TakeItForASpin.Presence
 
   @spin "spin"
   @initialize "initialize"  
-  @move "move"  
+  @move "move"
 
   def join("room:fidget", _message, socket) do
+    send self(), :after_join
     { :ok, socket }
   end
 
   def join("room:*", _message, _socket) do
     { :error, %{ reason: "There's only one fidget room!" } }
+  end
+
+  def handle_info(:after_join, socket) do
+    Presence.track(socket, socket.assigns.user, %{})
+    IO.inspect Presence.list(socket)
+    { :noreply, socket }
   end
 
   def handle_in(@spin, _body, socket) do

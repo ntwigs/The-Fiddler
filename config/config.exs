@@ -8,7 +8,7 @@ use Mix.Config
 # Configures the endpoint
 config :take_it_for_a_spin, TakeItForASpin.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "x8NLgOIf2H0nJud1aVFIJTwZwSdoeHODbgXatQMPoeap7y5VIgNJDlYkBfJbBpTA",
+  secret_key_base: "a_very_long_string",
   render_errors: [view: TakeItForASpin.ErrorView, accepts: ~w(html json)],
   pubsub: [name: TakeItForASpin.PubSub,
            adapter: Phoenix.PubSub.PG2]

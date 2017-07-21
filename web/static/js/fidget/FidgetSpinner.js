@@ -14,7 +14,7 @@ export default class {
   initialize() {
     this.draggable = Draggable.create(this.fidget, {
       type: 'x, y',
-      edgeResistance: 0.65,
+      edgeResistance: 1,
       bounds: '.container',
       throwProps: true,
       onPress: this.socketSpin.bind(this),

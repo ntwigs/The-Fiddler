@@ -17,10 +17,10 @@ defmodule TakeItForASpin.State do
   end
 
   def decrease_speed do
-    if (get_speed > 1.01) do
+    if (get_speed > 0.01) do
       Agent.get_and_update(:state, &calculate_speed_decrease(&1))
     else
-      1
+      0
     end
   end
 

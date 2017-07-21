@@ -1,5 +1,5 @@
 defmodule TakeItForASpin.State do
-  @speed 0.2
+  @speed 2
 
   def start_link do
     Agent.start_link(fn -> %{ speed: 0, x: 0, y: 0 } end, name: :state)

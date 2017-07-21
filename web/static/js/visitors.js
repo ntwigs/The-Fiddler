@@ -10,11 +10,9 @@ export default (channel) => {
 
   const setUsers = ({ user }) => {
     const amount = user.metas.length
-    const THE_FIDDLER = 'THE FIDDLER'
-    const FIDDLERS = `${ amount } FIDDLERS`
     amount === 1 ?
-      changeText(THE_FIDDLER) :
-      changeText(FIDDLERS)
+      changeText('THE FIDDLER') :
+      changeText(`${ amount } FIDDLERS`)
   }
 
   channel.on('presence_state', (state) => {

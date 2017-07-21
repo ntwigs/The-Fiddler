@@ -10,6 +10,7 @@ defmodule TakeItForASpin do
     children = [
       # Start the endpoint when the application starts
       supervisor(TakeItForASpin.Endpoint, []),
+      supervisor(TakeItForASpin.Presence, []),
       # Start your own worker by calling: TakeItForASpin.Worker.start_link(arg1, arg2, arg3)
       worker(TakeItForASpin.State, []),
       worker(TakeItForASpin.Speed, []),

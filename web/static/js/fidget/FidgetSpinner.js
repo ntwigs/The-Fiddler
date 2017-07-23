@@ -9,6 +9,7 @@ export default class {
     this.speed = 0
     this.x = 0
     this.y = 0
+    this.padding = 50
   }
 
   initialize() {
@@ -26,8 +27,29 @@ export default class {
   }
 
   setPosition({ x, y }) {
-    this.x = x
-    this.y = y
+    const outX = this.getWidth()
+    const outY = this.getHeight()
+
+    if (x < outX && x > -outX) {
+      this.x = x
+    }
+    if (y < outY && y > -outY) {
+      this.y = y
+    }
+  }
+
+  getWidth() {
+    const halfWindow = window.outerWidth / 2
+    const halftFidget = this.fidget.clientWidth / 2
+    const fullArea = halfWindow - halftFidget
+    return fullArea - this.padding
+  }
+
+  getHeight() {
+    const halfWindow = window.outerHeight / 2
+    const halftFidget = this.fidget.clientHeight / 2
+    const fullArea = halfWindow - halftFidget
+    return fullArea - this.padding
   }
 
   setSpeed(speed) {
